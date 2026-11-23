@@ -16,8 +16,16 @@ damit nur diesem einen Cask, nicht dem ganzen Tap.
 Aktualisieren mit `brew upgrade --cask notemac`, entfernen mit `brew uninstall --cask notemac`. Mit
 `--zap` gehen auch Einstellungen, Sitzung und benutzerdefinierte Sprachen.
 
-Die neueste Fassung, 1.5.0, heisst noch Griffel; ab der nächsten heisst auch die App NoteMac++. Wer den
-Cask `griffel` installiert hat, kommt mit `brew update` auf `notemac`.
+Die neueste Fassung, 1.5.0, heisst noch Griffel; ab der nächsten heisst auch die App NoteMac++.
+
+Wer den Cask `griffel` schon installiert hat: Homebrew überträgt das Vertrauen nicht auf den neuen
+Namen. So zieht er um, und der letzte Schritt legt den Befehl als `notemac` an:
+
+```bash
+brew trust --cask simon-baumhauer/tap/notemac
+brew migrate --cask griffel
+brew reinstall --cask simon-baumhauer/tap/notemac
+```
 
 ## Beglaubigung
 
